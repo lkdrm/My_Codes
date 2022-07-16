@@ -2,6 +2,7 @@
 """
 You have a range of numbers find a sum of range your numbers.
 """
+
 my_list = []
 count = 0
 
@@ -107,7 +108,30 @@ print(change_numbers(1,2,3,4,5,only_odd=True))
 Write a function which input some information of user and return as a shablon.
 """
 
-def user_information(name,last_name,age, some_information):
-    return (f"Name:{name}\nLast Name: {last_name}\n\nAge:{age}\n{some_information}\n{'-'*30}")
+def user_information(**kwargs):
+    if "name" not in kwargs or "last_name" not in kwargs:
+        return ("Please enter your name & Last name.")
+    print("Name: ",kwargs["name"],"\n"
+          "Last name: ",kwargs["last_name"])
 
-print(user_information("Jake","Korel",25,"love dogs"))
+    if len(kwargs) > 2:
+        print()
+    keys = list(kwargs.keys())[2:]
+    keys.sort()
+    for inf in keys:
+        print(f"{inf}: {kwargs[inf]}")
+    print("-"*30)
+
+user_information(name="Jaik",last_name="Koaew")
+user_information(name="Mike",last_name="Aber",age=23,email="example@xa.com",phone="981-123-948",)
+user_information(name="Kile",last_name="Ofark",age=30,email="example@gmail.com",phone="310-198-152",dog="Djeck")
+
+#####################################################
+
+#7 Seventh task :
+"""
+You have a list of numbers delete all numbers >0 and find out a sum of this numbers 
+
+Second use a lambda.
+
+"""
