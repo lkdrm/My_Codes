@@ -135,3 +135,21 @@ You have a list of numbers delete all numbers >0 and find out a sum of this numb
 Second use a lambda.
 
 """
+
+my_numbers = [2, 1,-5, 7, -1,13,-9, 5,-24, 18, 4]
+
+def find_and_delete(some_list):
+    list_of_negative_numbs = []
+    for i in some_list:
+        if i < 0:
+            list_of_negative_numbs.append(i)
+    return list_of_negative_numbs
+
+print(f"With using a function : {sum(find_and_delete(my_numbers))}")
+
+# With lamba:
+my_numbers = [1,2,-5,7,-1,4,-9,5, 12,-24,18]
+
+delete_positive_numbers = list(filter(lambda i : i<0 , my_numbers))
+
+print(f"The sum with using lamba : {sum(delete_positive_numbers)}")
