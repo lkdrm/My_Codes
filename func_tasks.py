@@ -153,3 +153,95 @@ my_numbers = [1,2,-5,7,-1,4,-9,5, 12,-24,18]
 delete_positive_numbers = list(filter(lambda i : i<0 , my_numbers))
 
 print(f"The sum with using lamba : {sum(delete_positive_numbers)}")
+
+#8 Eigth task :
+"""
+You have a list of names, find out and delete all names which start from small title and find out a length of all names.
+
+"""
+
+list_of_names = ["john","Joe","kile","Roland","mike","Keni"]
+
+def find_and_delete_low(some_list):
+    for i in some_list:
+        if i[0].isupper() == False:
+            some_list.remove(i)
+    return some_list
+
+def count_names(list_of_names):
+    clear_list = find_and_delete_low(list_of_names)
+    length_of_names = 0
+    for name in clear_list:
+        length_of_names += len(name)
+    return length_of_names
+        
+
+print(count_names(list_of_names))
+# With lambda :
+
+list_of_names = ["john","Joe","kile","Roland","mike","Keni"]
+
+find_and_delete_low_names = list(filter( lambda i: i[0].isupper(),list_of_names))
+
+count_len_names = len(''.join(find_and_delete_low_names))
+
+print(count_len_names)
+
+#9 ninth task :
+"""
+Create a func which will take a list of numbers , that every element of list will multiplied by his index and multiplied by 3 and than by thus number.
+With lambda.
+
+"""
+my_numbers_list = [3,5,9]
+
+def multiplied_numbers(some_list):
+    result_list = []
+    for i in some_list:
+        result = i * some_list.index(i)**3
+        result_list.append(result)
+    return result_list
+
+print(multiplied_numbers(my_numbers_list))
+
+# With lambda :
+
+multiplied_lambda = list(map(lambda i: i*my_numbers_list.index(i)**3, my_numbers_list))
+print(multiplied_lambda)
+
+#10 tenth task :
+"""
+Write a func which count a some example:
+
+n = 6
+
+result = n + (n - 2) + (n - 4) + (n -6)
+
+"""
+number = 10
+
+def find_sum(number):
+    result = number
+    for i in range(2,number,2):
+        result +=  number-i
+    return result
+
+print(find_sum(number))
+
+#11 eleventh task :
+"""
+Write a function which find out a sum of list , even if list have another list.
+
+"""
+lst_of_numbers = [1,2,[3,4],5,6]
+
+def count_sum(some_lsit):
+    sum_of_all_numbers = 0
+    for numbers in some_lsit:
+        if type(numbers) is list:
+            sum_of_all_numbers += count_sum(numbers)
+        else:
+            sum_of_all_numbers += numbers
+    return sum_of_all_numbers
+            
+print(count_sum(lst_of_numbers))
